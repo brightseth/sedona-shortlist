@@ -82,14 +82,113 @@
     font-size: .92rem;
   }
   address { font-style: normal; }
+  #trip-map {
+    height: 420px;
+    width: 100%;
+    border-radius: 8px;
+    margin: .35rem 0 .5rem;
+    z-index: 0;
+  }
+  .valley {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    background: #f3eadc;
+    border-radius: 8px;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem 1rem;
+    margin: .55rem 0 .35rem;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: .82rem;
+    color: var(--muted);
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+  }
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff8f0, 0 0 0 3px rgba(28, 20, 16, .16);
+  }
+  .pin-wrap { background: none; border: none; }
+  .popup-title {
+    font-weight: 600;
+    margin: 0 0 .2rem;
+    color: var(--ink);
+  }
+  .popup-meta {
+    margin: 0 0 .4rem;
+    color: var(--muted);
+    font-size: .9rem;
+  }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 <header>
   <h1>Sedona · Aug 30–Sep 2</h1>
-  <p>Seth &amp; Kristi. House first. The Center rides along. Updated Wed Aug 26, late afternoon.</p>
+  <p>Seth &amp; Kristi. House first. The Center rides along. Updated Wed Aug 26, evening. Map added.</p>
 </header>
 <main>
+
+<section>
+  <h2>Where this is</h2>
+  <div class="card">
+    <svg class="valley" viewBox="0 0 640 250" width="640" height="250" role="img" aria-label="Stylized Verde Valley, not to scale">
+      <rect width="640" height="250" fill="#f3eadc"/>
+      <text x="24" y="22" fill="#6b5344" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif" letter-spacing="0.08em">STYLIZED · NOT TO SCALE</text>
+      <text x="608" y="22" text-anchor="end" fill="#9a3b24" font-size="12" font-family="ui-sans-serif, system-ui, sans-serif">N</text>
+      <line x1="608" y1="28" x2="608" y2="42" stroke="#9a3b24" stroke-width="1.5"/>
+      <polygon points="608,26 604,32 612,32" fill="#9a3b24"/>
+
+      <line x1="400" y1="36" x2="400" y2="220" stroke="#6b5344" stroke-width="2" stroke-dasharray="6 5"/>
+      <text x="408" y="78" fill="#6b5344" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">I-17</text>
+      <text x="400" y="30" text-anchor="middle" fill="#1c1410" font-size="13" font-weight="600" font-family="Georgia, serif">Flagstaff · 45 min N</text>
+      <text x="400" y="238" text-anchor="middle" fill="#1c1410" font-size="13" font-weight="600" font-family="Georgia, serif">Phoenix · 2 hrs S</text>
+
+      <line x1="36" y1="108" x2="530" y2="108" stroke="#c4653a" stroke-width="2.4"/>
+      <text x="48" y="100" fill="#c4653a" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">SR 89A</text>
+
+      <path d="M338 112 C 390 124, 430 148, 456 158 C 430 168, 412 176, 400 186" fill="none" stroke="#9a3b24" stroke-width="2"/>
+      <text x="424" y="146" fill="#9a3b24" font-size="11" font-family="ui-sans-serif, system-ui, sans-serif">SR 179</text>
+
+      <text x="70" y="88" fill="#6b5344" font-size="13" font-family="Georgia, serif">Clarkdale</text>
+      <text x="148" y="128" fill="#6b5344" font-size="13" font-family="Georgia, serif">Cottonwood</text>
+      <text x="214" y="154" fill="#6b5344" font-size="13" font-family="Georgia, serif">Cornville</text>
+
+      <ellipse cx="332" cy="104" rx="58" ry="28" fill="#c4653a"/>
+      <text x="332" y="100" text-anchor="middle" fill="#fff8f0" font-size="15" font-weight="600" font-family="Georgia, serif">Sedona</text>
+      <text x="332" y="116" text-anchor="middle" fill="#fff8f0" font-size="10" font-family="ui-sans-serif, system-ui, sans-serif">the Lab · West 89A</text>
+
+      <rect x="448" y="150" width="78" height="22" rx="11" fill="#9a3b24"/>
+      <text x="487" y="165" text-anchor="middle" fill="#fff8f0" font-size="12" font-family="Georgia, serif">VOC Tue</text>
+
+      <text x="400" y="204" text-anchor="middle" fill="#1c1410" font-size="13" font-family="Georgia, serif">Camp Verde</text>
+      <text x="528" y="196" text-anchor="middle" fill="#6b5344" font-size="13" font-family="Georgia, serif">Lake Montezuma</text>
+    </svg>
+    <p class="meta">Verde Valley, stylized. Not to scale. I-17 is the dashed north–south. 89A is the rust line through Sedona.</p>
+  </div>
+
+  <div class="card">
+    <div id="trip-map"></div>
+    <div class="legend">
+      <span><i class="dot" style="background:#c4653a"></i> Sleep</span>
+      <span><i class="dot" style="background:#9a3b24"></i> Houses</span>
+      <span><i class="dot" style="background:#2f6b4f"></i> Windshield</span>
+      <span><i class="dot" style="background:#8a5a12"></i> Sunday streets</span>
+    </div>
+    <p class="meta">Crown Ridge, Chavez, Quartz, and the 89A offices are not pinned yet because OSM had no clean point.</p>
+  </div>
+</section>
 
 <section>
   <h2>Where we sleep</h2>
@@ -292,5 +391,53 @@
   This page is the trip.
 </footer>
 </main>
+<script>
+(function () {
+  var COLORS = {
+    stay: "#c4653a",
+    house: "#9a3b24",
+    commercial: "#2f6b4f",
+    sunday: "#8a5a12"
+  };
+  var PINS = [
+    { kind: "stay", label: "Airbnb", lat: 34.856659, lng: -111.7898632, addr: "485 Panorama Blvd, Sedona, AZ 86336", note: "Booked. Keypad. Sun after 4pm → Wed by 11am." },
+    { kind: "house", label: "2285 Sanborn", lat: 34.871164, lng: -111.80073, addr: "2285 Sanborn Dr, Sedona, AZ 86336", note: "$3,800 year lease. Thunder Mountain from the kitchen and backyard. Monday first." },
+    { kind: "house", label: "100 Hummingbird", lat: 34.8577176, lng: -111.8053361, addr: "100 W Hummingbird Ln, Sedona, AZ", note: "$3,800 year lease. Occupied, 48-hour notice. No named formation." },
+    { kind: "house", label: "70 Moore", lat: 34.8528679, lng: -111.7613148, addr: "70 Moore Dr, Sedona, AZ", note: "$3,400. Chapel / Oak Creek Knolls. Call first. May be stale." },
+    { kind: "house", label: "595 Coffee Pot", lat: 34.871921, lng: -111.793765, addr: "595 Coffee Pot Dr, Sedona, AZ", note: "Furnished bridge. Named rocks. Not a year home." },
+    { kind: "house", label: "385 Coffee Pot", lat: 34.8694478, lng: -111.7953332, addr: "385 Coffee Pot Dr, Sedona, AZ", note: "Furnished bridge. Booked Dec 1–Jan 31." },
+    { kind: "house", label: "775 Andante", lat: 34.873987, lng: -111.8063753, addr: "775 Andante Dr, Sedona, AZ", note: "The Stupa 2/2. Gone public since May 2025." },
+    { kind: "house", label: "105 Sycamore", lat: 34.8469187, lng: -111.7760837, addr: "105 Sycamore, Sedona, AZ 86351", note: "Furnished VOC. $3,745. Formation in the living room. Not Cathedral Rock." },
+    { kind: "commercial", label: "Bashas Coffee Pot", lat: 34.8666901, lng: -111.7955018, addr: "160 Coffee Pot Dr, Sedona, AZ", note: "Windshield only. Two units left. $14–$21 NNN." },
+    { kind: "commercial", label: "55 Southwest", lat: 34.8628737, lng: -111.8102397, addr: "55 SW Southwest Dr, Sedona, AZ", note: "2,251 sf, $3,995/mo. Open hall. Slightly large." },
+    { kind: "sunday", label: "Amitabha Stupa", lat: 34.87557, lng: -111.8082758, addr: "Amitabha Stupa, Sedona, AZ", note: "Sunday streets. Thunder Mountain / Andante." },
+    { kind: "sunday", label: "Distant Drums", lat: 34.8698915, lng: -111.8334919, addr: "Distant Drums Rd, Sedona, AZ", note: "Sunday streets. Late, to calibrate." }
+  ];
+
+  var map = L.map("trip-map", { scrollWheelZoom: false });
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>"
+  }).addTo(map);
+
+  var bounds = [];
+  PINS.forEach(function (pin) {
+    var icon = L.divIcon({
+      className: "pin-wrap",
+      html: '<span class="dot" style="background:' + COLORS[pin.kind] + '"></span>',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -8]
+    });
+    var maps = "https://maps.google.com/?q=" + encodeURIComponent(pin.addr);
+    var html = '<p class="popup-title">' + pin.label + '</p>' +
+      '<p class="popup-meta">' + pin.note + '</p>' +
+      '<a href="' + maps + '">Open in Maps</a>';
+    L.marker([pin.lat, pin.lng], { icon: icon }).addTo(map).bindPopup(html);
+    bounds.push([pin.lat, pin.lng]);
+  });
+  map.fitBounds(bounds, { padding: [28, 28] });
+})();
+</script>
 </body>
 </html>
