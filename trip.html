@@ -146,6 +146,23 @@
     color: var(--muted);
     font-size: .9rem;
   }
+  details.archive {
+    margin: .7rem 0 0;
+    color: var(--muted);
+    font-size: .95rem;
+  }
+  details.archive summary {
+    cursor: pointer;
+    color: var(--muted);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: .85rem;
+    letter-spacing: .02em;
+  }
+  .dropped {
+    margin: .45rem 0 0;
+    padding-left: 1.15rem;
+  }
+  .dropped li { margin: .12rem 0; }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -153,23 +170,24 @@
 <body>
 <header>
   <h1>Sedona · Aug 30–Sep 2</h1>
-  <p>Seth &amp; Kristi. House first. The Center rides along. Updated Sun Aug 30. Sunday: Sunshine 1–3, then home by 4 for Brandon at the house (~4 or 5, time not locked). Monday: 88 Chapel 10:00 with Brett, then Sunset Village street — workshop, not a home. Tuesday: Bighorn 9:00, Gardens 10–11:30, Sanborn noon.</p>
+  <p>Seth &amp; Kristi. House first. The Center rides along. Updated Sun Aug 30 night — checked in at 485 Panorama. They love the looking-across view. That is a hunt bar now, equal to Chapel. Sunday: Sunshine already streeted (trees, distant mesa — not that class), then home for Brandon. Monday: 88 Chapel 10:00 with Brett, then Sunset Village street — workshop, not a home. Tuesday: Bighorn 9:00, Gardens 10–11:30, Sanborn noon (main rental — that pocket).</p>
 </header>
 <main>
 
 <section>
   <h2>Now</h2>
   <div class="card">
-    <p>Sun Aug 30. Booked interiors:</p>
+    <p>Sun Aug 30 night. Checked in at 485 Panorama. They love the view — up high, looking across at the rocks. That is the Panorama-class bar, equal to Chapel. Not a listing.</p>
+    <p>Booked interiors:</p>
     <ul>
-      <li><strong>Sun 1:00–3:00</strong> — <strong>710 Sunshine Ln</strong> open house. First buy look. $785k. 3/2 · 1,280 sf.</li>
+      <li><strong>Sun 1:00–3:00</strong> — <strong>710 Sunshine Ln</strong>. Already streeted. First buy look. Not Panorama-class: trees and a distant mesa. $785k. 3/2 · 1,280 sf.</li>
       <li><strong>Sun ~4 or 5</strong> — Reading with Brandon (friend) at 485 Panorama. Time not locked. Hold the evening.</li>
       <li><strong>Mon 10:00</strong> — <strong>88 Chapel Rd</strong> with Brett Crary. Confirmed. Do not cancel. Showing — tenants still in it.</li>
       <li><strong>Tue 9:00</strong> — 110 E Bighorn with Miriam. Confirmed by email. Leave by ~9:40 for Gardens. Not the plan.</li>
       <li><strong>Tue 10:00–11:30</strong> — Gardens #10 with Becky. Look only. Unchanged.</li>
-      <li><strong>Tue 12:00 noon</strong> — <strong>2285 Sanborn</strong> with Liliana / Foothills. $3,800. Thunder Mountain views. This is the main walk.</li>
+      <li><strong>Tue 12:00 noon</strong> — <strong>2285 Sanborn</strong> with Liliana / Foothills. $3,800. Main rental — Panorama / Thunder Mountain pocket.</li>
     </ul>
-    <p class="meta">Be at Panorama by 4. Streets do not run through the reading. After Chapel Monday: street Sunset Village for a workshop look. Not a home. No Bighorn Monday. Do not email.</p>
+    <p class="meta">Checked in. Streets do not run through the reading. After Chapel Monday: street Sunset Village for a workshop look. Not a home. No Bighorn Monday. Do not email.</p>
   </div>
 </section>
 
@@ -218,13 +236,18 @@
 <section>
   <h2>View zones</h2>
   <div class="card">
-    <p>The house we want is a full-frame rock from the deck, like 88 Chapel (Elephant Rock). That lives on Chapel / Mystic Hills, some Airport Mesa lots, and the Cathedral / Chavez / Distant Drums sightlines. 89A townhouses and VOC golf are not that class. Gardens #10 Tuesday is a cheap look, not the goal.</p>
+    <p>Two bars, equal. The house we want is a full-frame rock from the deck.</p>
     <ul>
-      <li><strong>Chapel / Mystic Hills</strong> — hunt this. 88 Chapel is the bar. Booked Mon 10:00 with Brett Crary. Showing — tenants still in it.</li>
-      <li><strong>Airport Mesa ridge</strong> — street-calibrate Sunday/Tuesday.</li>
+      <li><strong>Chapel-class</strong> — Elephant Rock, like 88 Chapel. Chapel / Mystic Hills. Booked Mon 10:00 with Brett. Showing — tenants still in it.</li>
+      <li><strong>Panorama-class</strong> — high West Sedona looking across. Thunder Mountain / Coffee Pot / Chimney Rock feeling. Tonight’s house at 485 Panorama is that bar. Not a listing. Calibration from tonight.</li>
+    </ul>
+    <p>Sanborn Tuesday noon is the main rental because it is that pocket. Sunshine is not — they already streeted it: trees and a distant mesa. Airport Mesa and Cathedral / Chavez / Distant Drums are the same view quality, different rock. 89A townhouses and VOC golf are not that class. Gardens #10 Tuesday is a cheap look, not the goal.</p>
+    <ul>
+      <li><strong>Chapel / Mystic Hills</strong> — hunt this. 88 Chapel is the Chapel bar.</li>
+      <li><strong>Panorama / Thunder Mountain</strong> — hunt this. Looking-across. 485 Panorama tonight is the bar. Sanborn is this pocket.</li>
+      <li><strong>Airport Mesa ridge</strong> — street-calibrate.</li>
       <li><strong>Cathedral / Chavez / Distant Drums</strong> — same view quality, different rock.</li>
-      <li><strong>Thunder Mountain</strong> — only if the lot faces the formation.</li>
-      <li><strong>Skip as a home</strong> — VOC / Bell / Courthouse, 89A commercial flats. Bighorn is Tue 9:00 walk only.</li>
+      <li><strong>Skip as a home</strong> — VOC / Bell / Courthouse, 89A commercial flats. Bighorn is Tue 9:00 walk only. Sunshine is not this class.</li>
     </ul>
   </div>
 
@@ -232,9 +255,9 @@
     <div id="trip-map"></div>
     <div class="legend">
       <span><i class="swatch" style="background:#c9a227"></i> Chapel-class</span>
+      <span><i class="swatch" style="background:#4a6fa5"></i> Panorama-class</span>
       <span><i class="swatch" style="background:#e0c56e"></i> Airport Mesa</span>
       <span><i class="swatch" style="background:#c4653a"></i> Cathedral-class</span>
-      <span><i class="swatch" style="background:#4a6fa5"></i> Thunder Mountain</span>
       <span><i class="swatch" style="background:#c8c0b6"></i> Skip as a home</span>
     </div>
     <div class="legend">
@@ -245,7 +268,7 @@
       <span><i class="dot" style="background:#8a5a12"></i> Streets</span>
       <span><i class="dot" style="background:#8a7a6a"></i> Drive-by only</span>
     </div>
-    <p class="meta">Sunshine is Sunday 1–3. Chapel is Monday 10:00 with Brett. Be at Panorama by 4 for Brandon (~4 or 5, time not locked). Bighorn is Tuesday 9:00. Sanborn is Tuesday noon — the main walk.</p>
+    <p class="meta">485 Panorama is the looking-across bar — not a listing. Chapel is Monday 10:00 with Brett. Sunshine already streeted; not this class. Bighorn is Tuesday 9:00. Sanborn is Tuesday noon — the main rental, that pocket.</p>
   </div>
 </section>
 
@@ -253,9 +276,10 @@
   <h2>Where we sleep</h2>
   <div class="card">
     <span class="tag ok">Booked</span>
+    <span class="tag pri">Panorama-class bar</span>
     <h3>Breathtaking Views · mountain-top getaway</h3>
     <address>485 Panorama Blvd, Sedona, AZ 86336</address>
-    <p class="meta">Sun Aug 30 at 4:00 → Wed Sep 2 by 11am. Keypad. Two adults. $662.67. Hosts Rachel &amp; Anthony. Confirmation HMF4WWM8NB. Sunshine 1:00–3:00, then check in here. Reading with Brandon at the house ~4 or 5 — time not locked. Hold the evening.</p>
+    <p class="meta">Checked in. They love the view — up high on Panorama, looking across at the rocks. This is the Panorama-class bar, equal to Chapel. Not a listing. Calibration from tonight. Sun Aug 30 → Wed Sep 2 by 11am. Keypad. Two adults. $662.67. Hosts Rachel &amp; Anthony. Confirmation HMF4WWM8NB. Reading with Brandon at the house ~4 or 5 — time not locked. Hold the evening.</p>
     <a class="map" href="https://maps.google.com/?q=485+Panorama+Blvd,+Sedona,+AZ+86336">Open in Maps</a>
     · <a href="https://www.airbnb.com/rooms/33799131">Airbnb listing</a>
   </div>
@@ -267,7 +291,7 @@
     <p class="meta">Be at Panorama by 4. Streets do not run through the reading. Brandon is a friend at the house — not a Center event. Time not locked.</p>
     <ol>
       <li><span class="time">8:00–8:30</span> Leave Tucson. About four hours.</li>
-      <li><span class="time">1:00–3:00</span> Open house: <strong>710 Sunshine Ln</strong>. $785k. 3/2 · 1,280 sf · 1987 · 0.36 acre. First Sunday buy look.
+      <li><span class="time">1:00–3:00</span> Open house: <strong>710 Sunshine Ln</strong>. Already streeted. $785k. 3/2 · 1,280 sf · 1987 · 0.36 acre. First Sunday buy look — not Panorama-class. Trees and a distant mesa.
         <a class="map" href="https://maps.google.com/?q=710+Sunshine+Ln,+Sedona,+AZ+86336">Open in Maps</a>
         · <a href="https://www.coldwellbankerhomes.com/az/sedona/710-sunshine-ln/pid_72318597/">Listing</a>
       </li>
@@ -310,7 +334,7 @@
 <section>
   <h2>Tuesday Sep 1 · Sanborn noon is the main walk</h2>
   <div class="card">
-    <p class="meta">9:00 Bighorn with Miriam. Leave by about 9:40 for Gardens #10 at 10:00–11:30 — look only. Then 2285 Sanborn at 12:00 noon — this is the main walk. Then Chapel-class streets. Standup 3:30.</p>
+    <p class="meta">9:00 Bighorn with Miriam. Leave by about 9:40 for Gardens #10 at 10:00–11:30 — look only. Then 2285 Sanborn at 12:00 noon — this is the main walk, Panorama pocket. Then Chapel-class streets. Standup 3:30.</p>
     <ol>
       <li><span class="time">9:00</span> <strong>110 E Bighorn Court</strong> with Miriam / Sedona Elite. VOC / Sedona Golf Resort. $3,295. Oak Creek — not where they want to live. Booked walk, not the plan. Miriam could not do Monday. Seth confirmed Tuesday 9 by email. Leave by about 9:40 for Gardens.
         <a class="map" href="https://maps.google.com/?q=110+E+Bighorn+Court,+Sedona,+AZ+86351">Open in Maps</a>
@@ -340,10 +364,11 @@
   <h2>Houses · what is actually live</h2>
 
   <div class="card">
-    <span class="tag ok">Sunday 1–3</span>
+    <span class="tag ok">Already streeted</span>
     <span class="tag pri">First buy look</span>
+    <span class="tag no">Not Panorama-class</span>
     <h3>710 Sunshine Ln · $785k</h3>
-    <p class="meta">Open house Sun Aug 30, 1:00–3:00. First Sunday buy look. 3/2 · 1,280 sf · 1987 · 0.36 acre. Chimney Rock / Rodeo / Sanborn pocket. Rocks from the back deck. Trail at the end of the street. No HOA.</p>
+    <p class="meta">Already streeted. First Sunday buy look — not the looking-across house. Trees and a distant mesa. 3/2 · 1,280 sf · 1987 · 0.36 acre. Chimney Rock / Rodeo / Sanborn pocket. Trail at the end of the street. No HOA.</p>
     <a href="https://www.coldwellbankerhomes.com/az/sedona/710-sunshine-ln/pid_72318597/">Listing</a>
     · <a href="https://maps.google.com/?q=710+Sunshine+Ln,+Sedona,+AZ+86336">Maps</a>
   </div>
@@ -353,7 +378,7 @@
     <span class="tag pri">Chapel-class bar</span>
     <span class="tag">Showing</span>
     <h3>88 Chapel Rd</h3>
-    <p class="meta">The bar. Elephant Rock. Booked Mon 10:00 with Brett Crary. Kris forwarded; Brett is the contact. Showing — tenants still in it. Not a vacant empty house.</p>
+    <p class="meta">The Chapel-class bar. Elephant Rock. Equal to tonight’s Panorama looking-across. Booked Mon 10:00 with Brett Crary. Kris forwarded; Brett is the contact. Showing — tenants still in it. Not a vacant empty house.</p>
     <a href="https://maps.google.com/?q=88+Chapel+Rd,+Sedona,+AZ+86336">Maps</a>
   </div>
 
@@ -382,7 +407,7 @@
     <span class="tag pri">Main walk</span>
     <span class="tag ok">Year lease</span>
     <h3>2285 Sanborn Drive · $3,800</h3>
-    <p class="meta">Liliana / Foothills. Tuesday noon. This is the main walk. After Bighorn and Gardens #10. 3/2 · 2,482 sf · Thunder Mountain views. Year lease. Cats allowed. Do not email. 928-282-9533.</p>
+    <p class="meta">Liliana / Foothills. Tuesday noon. This is the main rental — Panorama / Thunder Mountain pocket, looking-across class. After Bighorn and Gardens #10. 3/2 · 2,482 sf. Year lease. Cats allowed. Do not email. 928-282-9533.</p>
     <a href="https://www.zillow.com/homedetails/2285-Sanborn-Dr-Sedona-AZ-86336/8783696_zpid/">Zillow</a>
     · <a href="https://maps.google.com/?q=2285+Sanborn+Dr,+Sedona,+AZ+86336">Maps</a>
   </div>
@@ -392,7 +417,7 @@
     <span class="tag">Look only</span>
     <span class="tag no">Not the goal</span>
     <h3>3340 W SR 89A #10 · Sedona Gardens · $2,600</h3>
-    <p class="meta">West Sedona. Becky Crockett / Unlimited RE. After Bighorn — leave VOC by about 9:40. Move-out inspection they were invited to join. Cheap look, not the goal — 89A townhouse, not Chapel-class. 2 bed / 1.5 bath · 1,160 sf · unfurnished (can be furnished) · available ~Sep 22 · Oct 1 move-in ok. Pets: max 2 cats and/or dogs. Water/sewer/trash paid by HOA/owner. Tenant pays electric + gas. 2 parking spaces. 3340 W State Route 89A #10, Sedona AZ 86336.</p>
+    <p class="meta">West Sedona. Becky Crockett / Unlimited RE. After Bighorn — leave VOC by about 9:40. Move-out inspection they were invited to join. Cheap look, not the goal — 89A townhouse, not Chapel-class or Panorama-class. 2 bed / 1.5 bath · 1,160 sf · unfurnished (can be furnished) · available ~Sep 22 · Oct 1 move-in ok. Pets: max 2 cats and/or dogs. Water/sewer/trash paid by HOA/owner. Tenant pays electric + gas. 2 parking spaces. 3340 W State Route 89A #10, Sedona AZ 86336.</p>
     <a href="https://maps.google.com/?q=3340+W+State+Route+89A+%2310,+Sedona,+AZ+86336">Maps</a>
   </div>
 
@@ -437,69 +462,20 @@
     <p class="meta">2026 Champion 2.5/2. Not walkable Aug 31–Sep 2. Ask the park office; do not treat it as a this-week interior.</p>
   </div>
 
-  <h3>Dropped</h3>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <span class="tag no">VOC</span>
-    <h3>853 Crown Ridge</h3>
-    <p class="meta">Village of Oak Creek. Off the walk list.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <h3>290 Pony Soldier Rd · $3,500</h3>
-    <p class="meta">3/2 · West Sedona. Right street. Hard drop: no pets and no business use. Kristi sent this Zillow.</p>
-    <a href="https://www.zillow.com/homedetails/290-Pony-Soldier-Rd-Sedona-AZ-86336/8782051_zpid/">Zillow</a>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dead</span>
-    <span class="tag no">Application approved</span>
-    <h3>100 W Hummingbird Lane · $3,800</h3>
-    <p class="meta">Dead. Application approved. Off the hunt.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <span class="tag no">No cats</span>
-    <h3>70 Moore Drive · ~$3,600</h3>
-    <p class="meta">Chapel. Elite can show it. No cats. Off the hunt.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <span class="tag no">No cats</span>
-    <h3>30 Schimberg Road · $3,895</h3>
-    <p class="meta">West Sedona. Elite added it. No cats. Off the hunt.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <span class="tag no">No cats</span>
-    <h3>485 Windsong Drive · $5,300</h3>
-    <p class="meta">West Sedona. Over the $3–4k band. No cats. Off the hunt.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <span class="tag no">Too small</span>
-    <h3>811 Dusty Rose Drive · ~$2,300</h3>
-    <p class="meta">2/1 · 891 sf · Nepenthe. Elite wrote Dusty Rrose. Public listing says no pets. Too small.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <span class="tag no">Rented</span>
-    <h3>775 Andante Drive</h3>
-    <p class="meta">Confirmed rented Aug 26 by Property Pros. Thunder Mountain / Chimney Rock / Stupa. They have nothing else in Sedona for 30-60 days.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag no">Dropped</span>
-    <h3>Linda historic 2/2 near Red Rock Crossing</h3>
-    <p class="meta">928-202-6300 is not working. Dead end.</p>
-  </div>
+  <details class="archive">
+    <summary>Dropped — tap to see</summary>
+    <ul class="dropped">
+      <li>853 Crown Ridge — VOC</li>
+      <li>290 Pony Soldier Rd — pets</li>
+      <li>100 W Hummingbird Lane — taken</li>
+      <li>70 Moore Drive — cats</li>
+      <li>30 Schimberg Road — cats</li>
+      <li>485 Windsong Drive — price</li>
+      <li>811 Dusty Rose Drive — small</li>
+      <li>775 Andante Drive — rented</li>
+      <li>Linda historic 2/2, Red Rock Crossing — dead</li>
+    </ul>
+  </details>
 
 </section>
 
@@ -601,6 +577,8 @@
   <div class="card">
     <ul>
       <li>No listing without a cat path. Skitz and Maggie are indoor cats.</li>
+      <li>Do not treat 485 Panorama as a listing. It is the looking-across bar, equal to Chapel.</li>
+      <li>Do not treat Sunshine as Panorama-class. Already streeted. Trees and a distant mesa.</li>
       <li>Do not treat Oak Creek as the plan. 110 E Bighorn is a booked walk only. Stay dropped: 853 Crown Ridge, 105 Sycamore, 55 Quartz, 200 Cathedral Rock Drive, 197 Ridge Trail.</li>
       <li>Do not email anyone. Sanborn is already booked Tuesday noon — that is the main walk.</li>
       <li>Do not run Sunday streets through the reading. Be at Panorama by 4. Time not locked. Hold the evening.</li>
@@ -641,12 +619,12 @@
     drive: "#8a7a6a"
   };
   var PINS = [
-    { kind: "stay", label: "Airbnb", lat: 34.856659, lng: -111.7898632, addr: "485 Panorama Blvd, Sedona, AZ 86336", note: "Booked. Keypad. Sun 4:00 check-in. Reading with Brandon at the house ~4 or 5 — time not locked. Hold the evening." },
-    { kind: "house", label: "710 Sunshine", lat: 34.8751653, lng: -111.8043073, addr: "710 Sunshine Ln, Sedona, AZ 86336", note: "Sun 1:00–3:00 open house. $785k. First Sunday buy look. Chimney Rock / Rodeo / Sanborn pocket." },
+    { kind: "stay", label: "Airbnb", lat: 34.856659, lng: -111.7898632, addr: "485 Panorama Blvd, Sedona, AZ 86336", note: "Checked in. They love the looking-across view. Panorama-class bar — equal to Chapel. Not a listing. Brandon ~4 or 5 — time not locked." },
+    { kind: "house", label: "710 Sunshine", lat: 34.8751653, lng: -111.8043073, addr: "710 Sunshine Ln, Sedona, AZ 86336", note: "Already streeted. $785k. First Sunday buy look. Not Panorama-class — trees and a distant mesa." },
     { kind: "house", label: "Sedona Gardens #10", lat: 34.86021, lng: -111.81847, addr: "3340 W State Route 89A #10, Sedona, AZ 86336", note: "$2,600. 2/1.5 · 1,160 sf. Becky / Unlimited RE. Booked Tue 10–11:30 look only. Not the goal." },
-    { kind: "house", label: "2285 Sanborn", lat: 34.871164, lng: -111.80073, addr: "2285 Sanborn Dr, Sedona, AZ 86336", note: "$3,800. Liliana / Foothills. Booked Tue noon — this is the main walk. Thunder Mountain views." },
+    { kind: "house", label: "2285 Sanborn", lat: 34.871164, lng: -111.80073, addr: "2285 Sanborn Dr, Sedona, AZ 86336", note: "$3,800. Liliana / Foothills. Booked Tue noon — main rental, Panorama / Thunder Mountain pocket." },
     { kind: "house", label: "255 Canyon", lat: 34.8540219, lng: -111.7616231, addr: "255 Canyon Dr, Sedona, AZ 86336", note: "Maybe. Asked Becky. No answer yet." },
-    { kind: "house", label: "88 Chapel", lat: 34.8285, lng: -111.7645, addr: "88 Chapel Rd, Sedona, AZ 86336", note: "The bar. Elephant Rock. Booked Mon 10:00 with Brett Crary. Showing — tenants still in it." },
+    { kind: "house", label: "88 Chapel", lat: 34.8285, lng: -111.7645, addr: "88 Chapel Rd, Sedona, AZ 86336", note: "Chapel-class bar. Elephant Rock. Equal to tonight’s Panorama looking-across. Booked Mon 10:00 with Brett. Showing — tenants still in it." },
     { kind: "house", label: "110 E Bighorn", lat: 34.77355, lng: -111.779762, addr: "110 E Bighorn Court, Sedona, AZ 86351", note: "$3,295. Miriam / Elite. Booked Tue 9:00 walk only. Not the plan. Leave by ~9:40 for Gardens." },
     { kind: "house", label: "Sedona Shadows", lat: 34.84286, lng: -111.86944, addr: "6770 W State Route 89A, Sedona, AZ 86336", note: "#32 $1,950 2/2 55+. Cats on Foothills listing. Furnished 3/2 also here." },
     { kind: "house", label: "50 Sombart", lat: 34.8575856, lng: -111.7628733, addr: "50 Sombart Ln, Sedona, AZ 86336", note: "#102 $2,195. Cats allowed. Cheap landing. Not the view house." },
@@ -670,7 +648,7 @@
     { name: "Chapel / Mystic Hills", note: "Chapel-class. Hunt this.", color: "#c9a227", fill: 0.28, south: 34.822, north: 34.838, west: -111.778, east: -111.752, label: true },
     { name: "Airport Mesa ridge", note: "Ridge views. Street-calibrate Sunday/Tuesday.", color: "#e0c56e", fill: 0.18, south: 34.843, north: 34.855, west: -111.800, east: -111.775, label: false },
     { name: "Cathedral / Chavez", note: "Cathedral-class. Same view quality, different rock.", color: "#c4653a", fill: 0.22, south: 34.818, north: 34.840, west: -111.820, east: -111.785, label: false },
-    { name: "Thunder Mountain", note: "Only if the lot faces the formation.", color: "#4a6fa5", fill: 0.20, south: 34.868, north: 34.882, west: -111.820, east: -111.795, label: false },
+    { name: "Panorama / Thunder Mountain", note: "Panorama-class. High West Sedona looking across. Hunt this. 485 Panorama tonight is the bar. Sanborn is this pocket. Sunshine is not that view.", color: "#4a6fa5", fill: 0.20, south: 34.852, north: 34.882, west: -111.820, east: -111.785, label: true },
     { name: "VOC / Bell / Courthouse", note: "Skip as a home. Bighorn is Tue 9:00 walk only.", color: "#8a7a6a", fill: 0.06, south: 34.770, north: 34.800, west: -111.785, east: -111.745, label: false },
     { name: "89A commercial flats", note: "Skip as a home.", color: "#8a7a6a", fill: 0.06, south: 34.859, north: 34.868, west: -111.822, east: -111.790, label: false }
   ];
